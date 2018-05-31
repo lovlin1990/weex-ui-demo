@@ -64,6 +64,11 @@
         </wxc-result>
         <wxc-loading :show="isShowLoading"
                      loading-text="正在加载中"></wxc-loading>
+
+        <wxc-slider-bar v-bind="sliderBarCfg"></wxc-slider-bar>
+        <div>
+            <input type="text" value="2" style="border:1px solid red;height:30px;"/>
+        </div>
     </div>
 </template>
 
@@ -77,7 +82,8 @@
     WxcPageCalendar,
     WxcIndexlist,
     WxcLoading,
-    WxcMask
+    WxcMask,
+    WxcSliderBar
   } from 'weex-ui';
 
   const modal = weex.requireModule('modal');
@@ -92,7 +98,8 @@
       WxcPageCalendar,
       WxcIndexlist,
       WxcLoading,
-      WxcMask
+      WxcMask,
+      WxcSliderBar
     },
     data: () => ({
       isShowPop: false,
@@ -117,7 +124,16 @@
         { date: '2017-12-28', value: '￥341' },
         { date: '2017-12-29', value: '￥230' },
         { date: '2017-12-06', value: '￥2000', emphasize: true }
-      ]
+      ],
+        sliderBarCfg: {
+            length: 400,
+            range: false,
+            min: 0,
+            max: 100,
+            value: 50,
+            defaultValue: 50,
+            disabled: false
+        }
     }),
     methods: {
       moreChooseClicked () {
